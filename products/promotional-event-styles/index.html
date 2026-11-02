@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotional Event Styles | Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd.</title>
+    <meta name="description" content="Custom promotional event products from Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd. Foldable totes, drawstring pouches and waterproof sacks for brand campaigns and giveaways.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #FFFFFF;
+            border-bottom: 1px solid #DCE4EC;
+            padding: 1rem 5%;
+        }
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #1F2430;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        nav a:hover{
+            color:#E8A33D;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding:3rem 5%;
+        }
+        h1 {
+            color:#102A43;
+            margin-bottom:2rem;
+        }
+        .product-wrap{
+            display:grid;
+            grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+            gap:2rem;
+        }
+        .product-card{
+            background:#FFFFFF;
+            border:1px solid #DCE4EC;
+            padding:1.4rem;
+            border-radius:16px;
+            text-align:center;
+            transition:transform .3s,box-shadow .3s;
+        }
+        .product-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(16,42,67,.10);}
+        .product-card img{
+            max-width:100%;
+            height:200px;
+            object-fit:cover;
+            border-radius:6px;
+            margin-bottom:1rem;
+        }
+        .product-card h3{
+            color:#102A43;
+            margin-bottom:1rem;
+        }
+        .product-card a{
+            display:inline-block;
+            margin-top:12px;
+            color:#102A43;
+            font-weight:bold;
+            text-decoration:none;
+        }
+        .whatsapp-float{
+            position:fixed;
+            bottom:24px;
+            right:24px;
+            background:#25D366;
+            color:#fff;
+            padding:14px 20px;
+            border-radius:50px;
+            text-decoration:none;
+            font-weight:bold;
+            box-shadow:0 2px 10px #0003;
+            z-index:998;
+        }
+        footer{
+            background:#102A43;
+            color:#fff;
+            text-align:center;
+            padding:2rem;
+            margin-top:4rem;
+        }
+        @media(max-width:768px){
+            nav ul{gap:1rem}
+        }
+        /* Cookie弹窗 */
+        #cookieBanner{
+            position:fixed;
+            bottom:0;
+            left:0;
+            right:0;
+            background:#102A43;
+            color:#fff;
+            padding:18px 24px;
+            z-index:9999;
+            display:none;
+            box-sizing:border-box;
+        }
+        .cookie-wrap{
+            max-width:1200px;
+            margin:0 auto;
+            display:flex;
+            flex-wrap:wrap;
+            gap:16px;
+            align-items:center;
+        }
+        .cookie-text{
+            flex:1;
+            min-width:300px;
+            font-size:14px;
+            line-height:1.6;
+        }
+        .cookie-text a{
+            color:#E8A33D;
+            text-decoration:none;
+        }
+        .cookie-buttons{
+            display:flex;
+            gap:12px;
+        }
+        .btn-accept{
+            background:#E8A33D;
+            color:white;
+            border:none;
+            padding:10px 22px;
+            border-radius:4px;
+            cursor:pointer;
+            font-weight:600;
+        }
+        .btn-decline{
+            background:transparent;
+            color:white;
+            border:1px solid #fff;
+            padding:10px 22px;
+            border-radius:4px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <script>
+/* 预览环境路径适配：doubao.link 下站内绝对路径转为相对路径（依赖平台 <base>）；正式 Netlify 部署不受影响 */
+var SITE_BASE = location.hostname.indexOf('doubao.link') >= 0 ? '' : '/';
+function sitePath(p){ return SITE_BASE + String(p).replace(/^\//, ''); }
+
+if(SITE_BASE === ''){
+    document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('a[href^="/"]').forEach(function(a){
+            var h = a.getAttribute('href');
+            if(h.indexOf('//') !== 0) a.setAttribute('href', h.replace(/^\//, ''));
+        });
+        document.querySelectorAll('img[src^="/"]').forEach(function(img){
+            img.setAttribute('src', img.getAttribute('src').replace(/^\//, ''));
+        });
+    });
+}
+</script>
+<header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/products/">Products</a></li>
+                <li><a href="/about.html">About Us</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <h1>Promotional Event Styles</h1>
+        <div class="product-wrap" id="productContainer">
+            <!-- JS自动填充产品卡片 -->
+        </div>
+    </main>
+    <a class="whatsapp-float" href="https://wa.me/8618174810606?text=Hello,I'm interested in your promotional products." target="_blank">WhatsApp Us</a>
+    <footer>
+        <p>© 2026 Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd. All rights reserved.</p>
+    </footer>
+
+    <!-- Cookie弹窗 -->
+    <div id="cookieBanner">
+        <div class="cookie-wrap">
+            <div class="cookie-text">
+                We use cookies to analyze website traffic and optimize your advertising experience. By accepting, you agree to our <a href="/privacy.html">Privacy Policy</a>.
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn-accept" id="acceptCookie">Accept</button>
+                <button class="btn-decline" id="declineCookie">Decline</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+const cookieKey = "site_cookie_consent";
+const consent = localStorage.getItem(cookieKey);
+const banner = document.getElementById("cookieBanner");
+const GA_ID = "G-DNVX20RTKE";
+const META_PIXEL_ID = "YOUR_META_PIXEL_ID";
+const PIN_TAG_ID = "YOUR_PINTEREST_TAG_ID";
+const euCountries = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','GB'];
+
+function loadAllTracking(){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'update', {ad_storage:'granted',analytics_storage:'granted'});
+    const gaScript = document.createElement('script');
+    gaScript.async = true;
+    gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(gaScript);
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+    if(META_PIXEL_ID !== "YOUR_META_PIXEL_ID"){
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('consent','grant');
+        fbq('init', META_PIXEL_ID);
+        fbq('track', 'PageView');
+    }
+    if(PIN_TAG_ID !== "YOUR_PINTEREST_TAG_ID"){
+        !function(e,t){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(arguments)};
+        const n=window.pintrk;n.queue=[],n.version="3.0";const r=t.createElement("script");
+        r.async=!0,r.src=e;const i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)}}
+        ("https://s.pinimg.com/ct/core.js",document);
+        pintrk('load',PIN_TAG_ID);pintrk('page');
+    }
+    const waBtns = document.querySelectorAll('a[href*="wa.me"]');
+    waBtns.forEach(btn=>{
+        btn.addEventListener('click',()=>{
+            if(typeof gtag !== 'undefined') gtag('event','generate_lead');
+            if(typeof fbq !== 'undefined') fbq('track','Lead');
+            if(typeof pintrk !== 'undefined') pintrk('track','lead');
+        })
+    })
+}
+function denyTracking(){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied'});
+}
+
+fetch('https://ipapi.co/json/')
+.then(res=>res.json())
+.then(data=>{
+    const countryCode = data.country_code;
+    const isEU = euCountries.includes(countryCode);
+    if(!isEU){
+        loadAllTracking();
+    }else{
+        if(consent === "accept") loadAllTracking();
+        else if(consent === "decline") denyTracking();
+        else banner.style.display = "block";
+    }
+})
+.catch(err=>{
+    if(!consent || consent === "accept") loadAllTracking();
+    else denyTracking();
+})
+
+document.getElementById("acceptCookie").addEventListener("click",()=>{
+    localStorage.setItem(cookieKey,"accept");
+    banner.style.display="none";
+    loadAllTracking();
+})
+document.getElementById("declineCookie").addEventListener("click",()=>{
+    localStorage.setItem(cookieKey,"decline");
+    banner.style.display="none";
+    denyTracking();
+})
+
+//加载产品列表（仅显示 promotional 分类）
+async function loadProducts(){
+    try{
+        const res = await fetch(SITE_BASE + "content/products/index.json");
+        const allProducts = await res.json();
+        const products = allProducts.filter(p => p.category === "promotional");
+        const container = document.getElementById("productContainer");
+        if(products.length === 0){
+            container.innerHTML = `<p>No products found.</p>`;
+            return;
+        }
+        products.forEach(product=>{
+            const card = document.createElement("div");
+            card.className="product-card";
+            card.innerHTML=`
+                ${product.image ? `<img src="${sitePath(product.image)}" alt="${product.title}">` : ""}
+                <h3>${product.title}</h3>
+                <p>${(product.description || "").substring(0,100)}...</p>
+                <p>MOQ: ${product.moq}</p>
+                <a href="${SITE_BASE}product-detail.html#slug=${product.slug}">View Details</a>
+            `;
+            container.appendChild(card);
+        })
+    }catch(err){
+        document.getElementById("productContainer").innerHTML = `<p>Failed to load products.</p>`;
+    }
+}
+loadProducts();
+</script>
+</body>
+</html>

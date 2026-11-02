@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager</title>
+</head>
+<body>
+  <script>
+/* 预览环境路径适配：doubao.link 下站内绝对路径转为相对路径（依赖平台 <base>）；正式 Netlify 部署不受影响 */
+var SITE_BASE = location.hostname.indexOf('doubao.link') >= 0 ? '' : '/';
+function sitePath(p){ return SITE_BASE + String(p).replace(/^\//, ''); }
+
+if(SITE_BASE === ''){
+    document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('a[href^="/"]').forEach(function(a){
+            var h = a.getAttribute('href');
+            if(h.indexOf('//') !== 0) a.setAttribute('href', h.replace(/^\//, ''));
+        });
+        document.querySelectorAll('img[src^="/"]').forEach(function(img){
+            img.setAttribute('src', img.getAttribute('src').replace(/^\//, ''));
+        });
+    });
+}
+</script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/netlify-cms@2.10.192/dist/netlify-cms.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+site_url: "https://www.jinyusmarttextile.com"
+display_url: "https://www.jinyusmarttextile.com"
+
+collections:
+  - name: "products"
+    label: "Products"
+    files:
+      - label: "Product List"
+        name: "products"
+        file: "content/products/index.json"
+        fields:
+          - name: "products"
+            label: "Products"
+            label_singular: "Product"
+            widget: "list"
+            fields:
+              - {label: "Product Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "MOQ", name: "moq", widget: "string"}
+              - {label: "Material", name: "material", widget: "string"}
+              - {label: "Product Image", name: "image", widget: "image"}
+              - {label: "Slug (URL标识, 如 canvas-tote-bag)", name: "slug", widget: "string", hint: "用于产品详情页链接，仅小写字母、数字和连字符，创建后不要改动"}
+              - {label: "Category (分类)", name: "category", widget: "select", options: ["bags", "promotional"], hint: "bags=包袋分类页，promotional=促销产品分类页"}
+
+  - name: "site_settings"
+    label: "Global Site Settings"
+    files:
+      - label: "Contact Info"
+        name: "contact"
+        file: "content/settings/contact.json"
+        fields:
+          - {label: "Company Name", name: "company", widget: "string", default: "Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd."}
+          - {label: "WhatsApp Number", name: "wa", widget: "string", default: "+8618174810606"}
