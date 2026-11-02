@@ -1,0 +1,6 @@
+﻿# robots.txt for Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd.
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.jinyusmarttextile.com/sitemap.xml

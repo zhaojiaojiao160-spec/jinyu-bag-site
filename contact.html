@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd.</title>
+    <meta name="description" content="Contact Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd. for custom bags and promotional textile products, 24 hours online service.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { color: #1F2430; line-height: 1.6; background: #FFFFFF; }
+        header{background:#FFFFFF;border-bottom:1px solid #DCE4EC;padding:1rem 5%;}
+        nav ul { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
+        nav a { color: #1F2430; text-decoration: none; font-weight: 500; }
+        nav a:hover{ color:#E8A33D; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 3rem 5%; }
+h1 { margin-bottom: 2rem; color:#102A43; }
+        .page-hero{ background:linear-gradient(120deg,#EAF0F6 0%,#F7FAFD 60%,#EDF2F8 100%); padding:3.5rem 5% 2.8rem; margin:-0rem 0 2.5rem; }
+        .page-hero h1{ margin:0; font-size:2.2rem; font-weight:800; letter-spacing:-.01em; }
+        .page-hero p{ color:#5B6472; margin-top:.6rem; max-width:640px; }
+        .contact-block{ background:#f7f9fc; padding:2rem; border-radius:10px; }
+        .contact-block p{ margin-bottom:1rem; font-size:17px; }
+        .whatsapp-float{ position:fixed; bottom:24px; right:24px; background:#25D366; color:#fff; padding:14px 20px; border-radius:50px; text-decoration:none; font-weight:bold; box-shadow:0 2px 10px rgba(0,0,0,0.2); z-index:998; }
+        footer{ background:#102A43; color:#fff; padding:2rem; margin-top:4rem; }
+        .footer-inner{ max-width:1200px; margin:0 auto; text-align:center; }
+        .footer-privacy a{ color:#E8A33D; text-decoration:none; }
+        @media(max-width:768px){ nav ul{gap:1rem} }
+        #cookieBanner{ position:fixed; bottom:0; left:0; right:0; background:#102A43; color:#fff; padding:18px 24px; z-index:9999; display:none; box-sizing:border-box; }
+        .cookie-wrap{ max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; gap:16px; align-items:center; }
+        .cookie-text{ flex:1; min-width:300px; font-size:14px; line-height:1.6; }
+        .cookie-text a{ color:#E8A33D; text-decoration:none; }
+        .cookie-buttons{ display:flex; gap:12px; }
+        .btn-accept{ background:#E8A33D; color:white; border:none; padding:10px 22px; border-radius:4px; cursor:pointer; font-weight:600; }
+        .btn-decline{ background:transparent; color:white; border:1px solid #fff; padding:10px 22px; border-radius:4px; cursor:pointer; }
+    </style>
+</head>
+<body>
+    <script>
+/* 预览环境路径适配：doubao.link 下站内绝对路径转为相对路径（依赖平台 <base>）；正式 Netlify 部署不受影响 */
+var SITE_BASE = location.hostname.indexOf('doubao.link') >= 0 ? '' : '/';
+function sitePath(p){ return SITE_BASE + String(p).replace(/^\//, ''); }
+
+if(SITE_BASE === ''){
+    document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('a[href^="/"]').forEach(function(a){
+            var h = a.getAttribute('href');
+            if(h.indexOf('//') !== 0) a.setAttribute('href', h.replace(/^\//, ''));
+        });
+        document.querySelectorAll('img[src^="/"]').forEach(function(img){
+            img.setAttribute('src', img.getAttribute('src').replace(/^\//, ''));
+        });
+    });
+}
+</script>
+<header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/products/">Products</a></li>
+                <li><a href="/about.html">About Us</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <div class="page-hero"><h1>Contact Us</h1></div>
+        <div class="contact-block">
+            <p><strong>Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd.</strong></p>
+            <p>WhatsApp: +8618174810606</p>
+            <p>Business Hours: 24 hours online</p>
+            <p>Welcome to send your inquiry, we will reply you as soon as possible.</p>
+        </div>
+    </main>
+    <a class="whatsapp-float" href="https://wa.me/8618174810606?text=Hello,I'm interested in your products." target="_blank">WhatsApp Us</a>
+    <footer>
+        <div class="footer-inner">
+            <p>© 2026 Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd. All rights reserved.</p>
+            <p class="footer-privacy" style="margin-top:8px;"><a href="/privacy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+    <div id="cookieBanner">
+        <div class="cookie-wrap">
+            <div class="cookie-text">
+                We use cookies to analyze website traffic and optimize your advertising experience. By accepting, you agree to our <a href="/privacy.html">Privacy Policy</a>.
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn-accept" id="acceptCookie">Accept</button>
+                <button class="btn-decline" id="declineCookie">Decline</button>
+            </div>
+        </div>
+    </div>
+<script>
+const cookieKey = "site_cookie_consent";
+const consent = localStorage.getItem(cookieKey);
+const banner = document.getElementById("cookieBanner");
+const GA_ID = "G-DNVX20RTKE";
+const META_PIXEL_ID = "YOUR_META_PIXEL_ID";
+const PIN_TAG_ID = "YOUR_PINTEREST_TAG_ID";
+const euCountries = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','GB'];
+function loadTrackingScripts(){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'update', { ad_storage: 'granted', analytics_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
+    const gaScript = document.createElement('script');
+    gaScript.async = true;
+    gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(gaScript);
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+    if(META_PIXEL_ID !== "YOUR_META_PIXEL_ID"){
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('consent','grant'); fbq('init', META_PIXEL_ID); fbq('track', 'PageView');
+        const noscriptMeta = document.createElement('noscript');
+        noscriptMeta.innerHTML = `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1"/>`;
+        document.body.appendChild(noscriptMeta);
+    }
+    if(PIN_TAG_ID !== "YOUR_PINTEREST_TAG_ID"){
+        !function(e,t){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var n=window.pintrk;n.queue=[],n.version="3.0";var r=t.createElement("script");r.async=!0;r.src="https://s.pinimg.com/ct/core.js";var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)}}(window,document);
+        pintrk('load', PIN_TAG_ID); pintrk('pagevisit');
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const whatsappBtns = document.querySelectorAll('a[href*="wa.me"]');
+        whatsappBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                gtag('event', 'generate_lead');
+                if(window.fbq) fbq('track', 'Lead');
+                if(window.pintrk) pintrk('track', 'lead');
+            });
+        })
+    });
+}
+function setDefaultDenyConsent(){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { ad_storage: 'denied', analytics_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+    if(window.fbq) fbq('consent','revoke');
+}
+fetch('https://ipapi.co/json/')
+.then(res=>res.json())
+.then(data=>{
+    const visitorCountry = data.country_code;
+    const isEU = euCountries.includes(visitorCountry);
+    if(!isEU){ loadTrackingScripts(); }
+    else{
+        setDefaultDenyConsent();
+        if(consent === "accept"){ loadTrackingScripts(); }
+        else if(consent === null){ banner.style.display = "block"; }
+    }
+})
+.catch(err=>{
+    setDefaultDenyConsent();
+    if(consent === "accept"){ loadTrackingScripts(); }
+    else if(consent === null){ banner.style.display = "block"; }
+})
+document.getElementById("acceptCookie").addEventListener("click",()=>{
+    localStorage.setItem(cookieKey,"accept");
+    banner.style.display="none";
+    loadTrackingScripts();
+})
+document.getElementById("declineCookie").addEventListener("click",()=>{
+    localStorage.setItem(cookieKey,"decline");
+    banner.style.display="none";
+})
+</script>
+</body>
+</html>
