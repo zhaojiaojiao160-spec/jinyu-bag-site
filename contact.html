@@ -17,6 +17,15 @@ h1 { margin-bottom: 2rem; color:#102A43; }
         .page-hero{ background:linear-gradient(120deg,#EAF0F6 0%,#F7FAFD 60%,#EDF2F8 100%); padding:3.5rem 5% 2.8rem; margin:-0rem 0 2.5rem; }
         .page-hero h1{ margin:0; font-size:2.2rem; font-weight:800; letter-spacing:-.01em; }
         .page-hero p{ color:#5B6472; margin-top:.6rem; max-width:640px; }
+
+        #contactChannels{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.1rem; margin:1.6rem 0 1.2rem; }
+        .channel{ background:#fff; border:1px solid #DCE4EC; border-radius:10px; padding:1rem 1.2rem; }
+        .ch-label{ font-size:.8rem; text-transform:uppercase; letter-spacing:.05em; color:#5B6472; margin-bottom:.35rem; font-weight:600; }
+        .ch-value{ color:#102A43; font-weight:700; text-decoration:none; word-break:break-all; display:inline-block; }
+        .ch-value:hover{ color:#E8A33D; }
+        .ch-value.wechat{ cursor:pointer; }
+        .ch-value.wechat em{ font-style:normal; font-weight:400; font-size:.75rem; color:#8A94A3; margin-left:6px; }
+        .contact-note{ color:#5B6472; }
         .contact-block{ background:#f7f9fc; padding:2rem; border-radius:10px; }
         .contact-block p{ margin-bottom:1rem; font-size:17px; }
         .whatsapp-float{ position:fixed; bottom:24px; right:24px; background:#25D366; color:#fff; padding:14px 20px; border-radius:50px; text-decoration:none; font-weight:bold; box-shadow:0 2px 10px rgba(0,0,0,0.2); z-index:998; }
@@ -65,9 +74,9 @@ if(SITE_BASE === ''){
         <div class="page-hero"><h1>Contact Us</h1></div>
         <div class="contact-block">
             <p><strong>Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd.</strong></p>
-            <p>WhatsApp: +8618174810606</p>
-            <p>Business Hours: 24 hours online</p>
-            <p>Welcome to send your inquiry, we will reply you as soon as possible.</p>
+            <div id="contactChannels"></div>
+            <p class="contact-note" id="contactHours">Business Hours: 24 hours online (GMT+8)</p>
+            <p class="contact-note">Welcome to send your inquiry, we will reply you as soon as possible.</p>
         </div>
     </main>
     <a class="whatsapp-float" href="https://wa.me/8618174810606?text=Hello,I'm interested in your products." target="_blank">WhatsApp Us</a>
@@ -92,9 +101,9 @@ if(SITE_BASE === ''){
 const cookieKey = "site_cookie_consent";
 const consent = localStorage.getItem(cookieKey);
 const banner = document.getElementById("cookieBanner");
-const GA_ID = "G-DNVX20RTKE";
-const META_PIXEL_ID = "YOUR_META_PIXEL_ID";
-const PIN_TAG_ID = "YOUR_PINTEREST_TAG_ID";
+const GA_ID = "G-7H5SFHC9FT";
+const META_PIXEL_ID = "3025464907789231";
+const PIN_TAG_ID = "2613926838568";
 const euCountries = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','GB'];
 function loadTrackingScripts(){
     window.dataLayer = window.dataLayer || [];
@@ -121,9 +130,7 @@ function loadTrackingScripts(){
         const whatsappBtns = document.querySelectorAll('a[href*="wa.me"]');
         whatsappBtns.forEach(btn => {
             btn.addEventListener('click', function() {
-                gtag('event', 'generate_lead');
-                if(window.fbq) fbq('track', 'Lead');
-                if(window.pintrk) pintrk('track', 'lead');
+                if(window.trackLead) window.trackLead();
             });
         })
     });
@@ -160,6 +167,73 @@ document.getElementById("declineCookie").addEventListener("click",()=>{
     localStorage.setItem(cookieKey,"decline");
     banner.style.display="none";
 })
+</script>
+<script>
+// 统一 WhatsApp 询盘转化上报：点击委托（支持动态渲染按钮），400ms 内去重
+window.trackLead = function(){
+  if(window.__leadFired) return;
+  window.__leadFired = true;
+  setTimeout(function(){ window.__leadFired = false; }, 400);
+  if(window.gtag) gtag('event','generate_lead',{method:'whatsapp'});
+  if(window.fbq) fbq('track','Lead');
+  if(window.pintrk) pintrk('track','lead');
+};
+document.addEventListener('click', function(e){
+  var a = (e.target && e.target.closest) ? e.target.closest('a[href*="wa.me"],a[href*="api.whatsapp.com"],a[href*="whatsapp"]') : null;
+  if(a) window.trackLead();
+}, true);
+</script>
+
+<script>
+/* 联系方式从 content/settings/contact.json 渲染：WhatsApp 多号 / 邮箱 / 电话 / 微信 */
+(function(){
+    function digits(n){ return String(n || '').replace(/[^0-9]/g, ''); }
+    function waLink(n){ return 'https://wa.me/' + digits(n) + '?text=' + encodeURIComponent("Hello, I'm interested in your products."); }
+    fetch(SITE_BASE + 'content/settings/contact.json')
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+            var box = document.getElementById('contactChannels');
+            if(!box) return;
+            var html = '';
+            (d.wa_list || []).forEach(function(w, i){
+                if(!digits(w.number)) return;
+                var label = w.label || ('WhatsApp ' + (i + 1));
+                html += '<div class="channel"><div class="ch-label">' + label + '</div>'
+                      + '<a class="ch-value wa" target="_blank" rel="noopener" href="' + waLink(w.number) + '">' + w.number + '</a></div>';
+            });
+            if(d.email){
+                html += '<div class="channel"><div class="ch-label">Email</div>'
+                      + '<a class="ch-value" href="mailto:' + d.email + '">' + d.email + '</a></div>';
+            }
+            if(d.phone){
+                html += '<div class="channel"><div class="ch-label">Phone</div>'
+                      + '<a class="ch-value" href="tel:' + String(d.phone).replace(/[^+0-9]/g, '') + '">' + d.phone + '</a></div>';
+            }
+            (d.wechat_list || []).forEach(function(w, i){
+                var id = (typeof w === 'string') ? w : (w && w.id);
+                if(!id) return;
+                html += '<div class="channel"><div class="ch-label">WeChat ' + (i + 1) + '</div>'
+                      + '<span class="ch-value wechat" data-copy="' + id + '">' + id + ' <em>click to copy</em></span></div>';
+            });
+            box.innerHTML = html;
+            if(d.hours){ document.getElementById('contactHours').textContent = 'Business Hours: ' + d.hours; }
+
+            var floatBtn = document.querySelector('.whatsapp-float');
+            var first = (d.wa_list || []).filter(function(w){ return digits(w.number); })[0];
+            if(first && floatBtn){ floatBtn.href = waLink(first.number); }
+
+            box.addEventListener('click', function(e){
+                var t = e.target.closest ? e.target.closest('[data-copy]') : null;
+                if(!t) return;
+                var txt = t.getAttribute('data-copy');
+                if(navigator.clipboard){ navigator.clipboard.writeText(txt); }
+                var em = t.querySelector('em');
+                if(em){ var old = em.textContent; em.textContent = 'copied';
+                        setTimeout(function(){ em.textContent = old; }, 1200); }
+            });
+        })
+        .catch(function(){});
+})();
 </script>
 </body>
 </html>

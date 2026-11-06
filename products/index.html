@@ -85,6 +85,86 @@
             nav ul{gap:1rem}
         }
     </style>
+<!-- ===== Analytics: GA4 + Meta Pixel + Pinterest (WhatsApp Lead 上报) ===== -->
+<script>
+(function(){
+  var GA_ID="G-7H5SFHC9FT", META_PIXEL_ID="3025464907789231", PIN_TAG_ID="2613926838568";
+  var KEY="site_cookie_consent";
+  var EU=['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','GB'];
+  var loaded=false;
+
+  function privacyHref(){ return location.pathname.indexOf('/products/')>-1 ? '../privacy.html' : 'privacy.html'; }
+
+  function ensureBanner(){
+    if(document.getElementById('cookieBanner')) return;
+    var div=document.createElement('div');
+    div.id='cookieBanner';
+    div.style.cssText='position:fixed;bottom:0;left:0;right:0;background:#102A43;color:#fff;padding:16px 24px;z-index:99999;display:none;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;box-sizing:border-box;';
+    div.innerHTML='<div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px;align-items:center;">'
+      + '<div style="flex:1;min-width:260px;">We use cookies to analyse site traffic and improve your experience. See our <a href="'+privacyHref()+'" style="color:#E8A33D;">Privacy Policy</a>.</div>'
+      + '<div style="display:flex;gap:10px;">'
+      + '<button id="acceptCookie" style="background:#E8A33D;color:#fff;border:none;padding:9px 20px;border-radius:6px;cursor:pointer;font-weight:600;">Accept</button>'
+      + '<button id="declineCookie" style="background:transparent;color:#fff;border:1px solid #fff;padding:9px 20px;border-radius:6px;cursor:pointer;">Decline</button>'
+      + '</div></div>';
+    document.body.appendChild(div);
+    div.querySelector('#acceptCookie').onclick=function(){ try{localStorage.setItem(KEY,'accept');}catch(e){} div.style.display='none'; loadTracking(); };
+    div.querySelector('#declineCookie').onclick=function(){ try{localStorage.setItem(KEY,'decline');}catch(e){} div.style.display='none'; };
+  }
+
+  function loadTracking(){
+    if(loaded) return; loaded=true;
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag=window.gtag||gtag;
+    gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});
+    if(!document.getElementById('ga4-loader')){
+      var s=document.createElement('script'); s.id='ga4-loader'; s.async=true;
+      s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;
+      document.head.appendChild(s);
+    }
+    gtag('js',new Date());
+    gtag('config',GA_ID);
+
+    if(!window.fbq){
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    }
+    fbq('consent','grant'); fbq('init',META_PIXEL_ID); fbq('track','PageView');
+
+    if(!window.pintrk){
+      !function(e,t){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var n=window.pintrk;n.queue=[],n.version="3.0";var r=t.createElement("script");r.async=!0;r.src="https://s.pinimg.com/ct/core.js";var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)}}(window,document);
+    }
+    pintrk('load',PIN_TAG_ID); pintrk('pagevisit');
+  }
+
+  function denyByDefault(){
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag=window.gtag||gtag;
+    gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+    if(window.fbq) fbq('consent','revoke');
+  }
+
+  var consent=null;
+  try{ consent=localStorage.getItem(KEY); }catch(e){}
+
+  function start(){
+    ensureBanner();
+    fetch('https://ipapi.co/json/').then(function(r){return r.json();}).then(function(d){
+      if(EU.indexOf(d.country_code)===-1){ loadTracking(); }
+      else if(consent==='accept'){ loadTracking(); }
+      else if(consent===null){ document.getElementById('cookieBanner').style.display='block'; }
+      else { denyByDefault(); }
+    }).catch(function(){
+      if(consent==='accept'){ loadTracking(); }
+      else if(consent===null){ document.getElementById('cookieBanner').style.display='block'; }
+      else { denyByDefault(); }
+    });
+  }
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',start); } else { start(); }
+})();
+</script>
+<!-- ===== end Analytics ===== -->
+
 </head>
 <body>
     <script>
@@ -133,5 +213,20 @@ if(SITE_BASE === ''){
     <footer>
         <p>© 2026 Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd. All rights reserved.</p>
     </footer>
+<script>
+// 统一 WhatsApp 询盘转化上报：点击委托（支持动态渲染按钮），400ms 内去重
+window.trackLead = function(){
+  if(window.__leadFired) return;
+  window.__leadFired = true;
+  setTimeout(function(){ window.__leadFired = false; }, 400);
+  if(window.gtag) gtag('event','generate_lead',{method:'whatsapp'});
+  if(window.fbq) fbq('track','Lead');
+  if(window.pintrk) pintrk('track','lead');
+};
+document.addEventListener('click', function(e){
+  var a = (e.target && e.target.closest) ? e.target.closest('a[href*="wa.me"],a[href*="api.whatsapp.com"],a[href*="whatsapp"]') : null;
+  if(a) window.trackLead();
+}, true);
+</script>
 </body>
 </html>

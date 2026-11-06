@@ -200,9 +200,9 @@ if(SITE_BASE === ''){
 const cookieKey = "site_cookie_consent";
 const consent = localStorage.getItem(cookieKey);
 const banner = document.getElementById("cookieBanner");
-const GA_ID = "G-DNVX20RTKE";
-const META_PIXEL_ID = "YOUR_META_PIXEL_ID";
-const PIN_TAG_ID = "YOUR_PINTEREST_TAG_ID";
+const GA_ID = "G-7H5SFHC9FT";
+const META_PIXEL_ID = "3025464907789231";
+const PIN_TAG_ID = "2613926838568";
 const euCountries = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','GB'];
 
 function loadAllTracking(){
@@ -238,9 +238,7 @@ function loadAllTracking(){
     const waBtns = document.querySelectorAll('a[href*="wa.me"]');
     waBtns.forEach(btn=>{
         btn.addEventListener('click',()=>{
-            if(typeof gtag !== 'undefined') gtag('event','generate_lead');
-            if(typeof fbq !== 'undefined') fbq('track','Lead');
-            if(typeof pintrk !== 'undefined') pintrk('track','lead');
+            if(window.trackLead) window.trackLead();
         })
     })
 }
@@ -318,6 +316,21 @@ async function loadProductDetail(){
     }
 }
 loadProductDetail();
+</script>
+<script>
+// 统一 WhatsApp 询盘转化上报：点击委托（支持动态渲染按钮），400ms 内去重
+window.trackLead = function(){
+  if(window.__leadFired) return;
+  window.__leadFired = true;
+  setTimeout(function(){ window.__leadFired = false; }, 400);
+  if(window.gtag) gtag('event','generate_lead',{method:'whatsapp'});
+  if(window.fbq) fbq('track','Lead');
+  if(window.pintrk) pintrk('track','lead');
+};
+document.addEventListener('click', function(e){
+  var a = (e.target && e.target.closest) ? e.target.closest('a[href*="wa.me"],a[href*="api.whatsapp.com"],a[href*="whatsapp"]') : null;
+  if(a) window.trackLead();
+}, true);
 </script>
 </body>
 </html>

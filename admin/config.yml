@@ -37,4 +37,20 @@ collections:
         file: "content/settings/contact.json"
         fields:
           - {label: "Company Name", name: "company", widget: "string", default: "Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd."}
-          - {label: "WhatsApp Number", name: "wa", widget: "string", default: "+8618174810606"}
+          - name: "wa_list"
+            label: "WhatsApp Numbers (显示在联系页)"
+            label_singular: "WhatsApp"
+            widget: "list"
+            summary: "{{fields.label}} - {{fields.number}}"
+            fields:
+              - {label: "Label (如 Sales / Kelvin)", name: "label", widget: "string"}
+              - {label: "Number (含国际区号, 如 +8618174810606)", name: "number", widget: "string"}
+          - {label: "Email", name: "email", widget: "string", required: false}
+          - {label: "Phone (可选)", name: "phone", widget: "string", required: false}
+          - name: "wechat_list"
+            label: "WeChat IDs (可选)"
+            label_singular: "WeChat"
+            widget: "list"
+            required: false
+            field: {label: "WeChat ID", name: "id", widget: "string"}
+          - {label: "Business Hours", name: "hours", widget: "string", required: false, default: "24 hours online (GMT+8)"}

@@ -1,4 +1,10 @@
 {
   "company": "Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd.",
-  "wa": "+8618174810606"
+  "wa_list": [
+    { "label": "Sales 1", "number": "+8618174810606" }
+  ],
+  "email": "",
+  "phone": "",
+  "wechat_list": [],
+  "hours": "24 hours online (GMT+8)"
 }
