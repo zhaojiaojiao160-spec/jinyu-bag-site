@@ -1,56 +1,44 @@
 backend:
   name: git-gateway
   branch: main
-
-media_folder: "assets/images/uploads"
-public_folder: "/assets/images/uploads"
-
-site_url: "https://www.jinyusmarttextile.com"
-display_url: "https://www.jinyusmarttextile.com"
-
+media_folder: "assets/images/products"
+public_folder: "/assets/images/products"
 collections:
   - name: "products"
     label: "Products"
-    files:
-      - label: "Product List"
-        name: "products"
-        file: "content/products/index.json"
-        fields:
-          - name: "products"
-            label: "Products"
-            label_singular: "Product"
-            widget: "list"
-            fields:
-              - {label: "Product Title", name: "title", widget: "string"}
-              - {label: "Description", name: "description", widget: "text"}
-              - {label: "MOQ", name: "moq", widget: "string"}
-              - {label: "Material", name: "material", widget: "string"}
-              - {label: "Product Image", name: "image", widget: "image"}
-              - {label: "Slug (URL标识, 如 canvas-tote-bag)", name: "slug", widget: "string", hint: "用于产品详情页链接，仅小写字母、数字和连字符，创建后不要改动"}
-              - {label: "Category (分类)", name: "category", widget: "select", options: ["bags", "promotional"], hint: "bags=包袋分类页，promotional=促销产品分类页"}
-
-  - name: "site_settings"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Product Title", name: "title", widget: "string"}
+      - {label: "Slug(英文链接名，小写，无空格)", name: "slug", widget: "string"}
+      - {label: "Main Image", name: "image", widget: "image"}
+      - {label: "一级分类", name: "category_1", widget: "select", options: ["Custom Bags", "Promotional Event Products"]}
+      - {label: "二级分类（自由输入）", name: "category_2", widget: "string"}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "WhatsApp链接", name: "whatsapp", widget: "string"}
+      - {label: "是否精选（勾选才会显示在首页）", name: "featured", widget: "boolean", default: false}
+  - name: "settings"
     label: "Global Site Settings"
     files:
       - label: "Contact Info"
         name: "contact"
         file: "content/settings/contact.json"
         fields:
-          - {label: "Company Name", name: "company", widget: "string", default: "Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd."}
-          - name: "wa_list"
-            label: "WhatsApp Numbers (显示在联系页)"
-            label_singular: "WhatsApp"
-            widget: "list"
-            summary: "{{fields.label}} - {{fields.number}}"
+          - {label: "Company Name", name: "company_name", widget: "string"}
+          - label: "WhatsApp Numbers"
+            name: whatsapp_numbers
+            widget: list
             fields:
-              - {label: "Label (如 Sales / Kelvin)", name: "label", widget: "string"}
-              - {label: "Number (含国际区号, 如 +8618174810606)", name: "number", widget: "string"}
+              - {label: "Label", name: "label", widget: "string"}
+              - {label: "Number(+86...)", name: "number", widget: "string"}
           - {label: "Email", name: "email", widget: "string", required: false}
-          - {label: "Phone (可选)", name: "phone", widget: "string", required: false}
-          - name: "wechat_list"
-            label: "WeChat IDs (可选)"
-            label_singular: "WeChat"
-            widget: "list"
+          - {label: "Phone", name: "phone", widget: "string", required: false}
+          - label: "WeChat IDs"
+            name: wechat_ids
+            widget: list
             required: false
-            field: {label: "WeChat ID", name: "id", widget: "string"}
-          - {label: "Business Hours", name: "hours", widget: "string", required: false, default: "24 hours online (GMT+8)"}
+            fields:
+              - {label: "WeChat ID", name: "id", widget: "string"}
+          - {label: "Business Hours", name: "business_hours", widget: "string", required: false}
+
