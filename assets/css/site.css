@@ -1,0 +1,149 @@
+/* ===========================================================
+   JINYU Textile — shared site styles
+   Used by every page: header / nav / mobile drawer / back-to-top
+   Page-specific layout styles stay inline in each .html file.
+   =========================================================== */
+
+:root{
+  --bg:#FFFFFF;
+  --bg-soft:#F2F5FA;
+  --primary:#1E3A5F;
+  --primary-dark:#102A43;
+  --accent:#E8A33D;
+  --text:#1F2430;
+  --muted:#5B6472;
+  --line:#DCE4EC;
+  --radius:16px;
+  --shadow:0 2px 16px rgba(16,42,67,.06);
+}
+
+/* ---------- header ---------- */
+header.site-header{
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid var(--line);
+}
+
+.site-nav{
+  position:relative;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  max-width:1200px;
+  margin:0 auto;
+  padding:.9rem 5%;
+}
+
+.site-logo{
+  font-size:1.2rem;
+  font-weight:800;
+  color:var(--primary-dark);
+  letter-spacing:-.01em;
+  text-decoration:none;
+  flex-shrink:0;
+}
+.site-logo span{color:var(--accent);}
+
+/* higher specificity than legacy `nav ul` rules so mobile drawer works everywhere */
+.site-nav .nav-links{
+  display:flex;
+  gap:2.2rem;
+  list-style:none;
+  align-items:center;
+  margin:0;
+  padding:0;
+}
+.site-nav .nav-links a{
+  color:var(--text);
+  font-size:.95rem;
+  font-weight:500;
+  text-decoration:none;
+  transition:color .25s;
+}
+.site-nav .nav-links a:hover{color:var(--primary);}
+.site-nav .nav-links a.nav-cta{
+  background:var(--primary);
+  color:#fff;
+  padding:9px 20px;
+  border-radius:999px;
+  font-weight:600;
+  transition:background .25s;
+}
+.site-nav .nav-links a.nav-cta:hover{background:var(--primary-dark);color:#fff;}
+
+.nav-toggle{
+  display:none;
+  background:transparent;
+  border:1px solid var(--line);
+  border-radius:10px;
+  width:42px;
+  height:42px;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  flex-shrink:0;
+}
+.nav-toggle svg{width:22px;height:22px;stroke:var(--primary-dark);stroke-width:2;fill:none;}
+.nav-toggle[aria-expanded="true"]{background:var(--bg-soft);}
+
+@media (max-width:900px){
+  .site-nav .nav-links{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+    background:#fff;
+    padding:.6rem 5% 1.2rem;
+    border-bottom:1px solid var(--line);
+    box-shadow:0 14px 30px rgba(16,42,67,.12);
+  }
+  .site-nav.menu-open .nav-links{display:flex;}
+  .site-nav .nav-links li{width:100%;}
+  .site-nav .nav-links a{
+    display:block;
+    width:100%;
+    padding:.75rem 0;
+    border-bottom:1px dashed var(--line);
+    font-size:1rem;
+  }
+  .site-nav .nav-links li:last-child a{border-bottom:none;padding-top:1rem;}
+  .site-nav .nav-links a.nav-cta{display:inline-block;width:auto;text-align:center;padding:11px 24px;}
+  .nav-toggle{display:inline-flex;}
+}
+
+/* ---------- back to top ---------- */
+.back-top{
+  position:fixed;
+  right:24px;
+  bottom:92px;
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+  transition:opacity .25s,transform .25s,visibility .25s;
+  box-shadow:0 6px 18px rgba(16,42,67,.14);
+  z-index:999;
+}
+.back-top.show{opacity:1;visibility:visible;transform:translateY(0);}
+.back-top svg{width:20px;height:20px;stroke:var(--primary);stroke-width:2;fill:none;}
+
+@media (max-width:600px){
+  .back-top{right:16px;bottom:88px;width:42px;height:42px;}
+}

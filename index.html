@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JINYU Smart Textile | Custom Promotional Bags & Textile Products Manufacturer</title>
+    <meta name="description" content="Professional manufacturer of custom foldable shopping bags, drawstring bags, waterproof backpacks and promotional products. Factory direct, custom logo, low MOQ, global shipping.">
+    <style>
+        :root{
+            --bg:#FFFFFF; --bg-soft:#F2F5FA; --primary:#1E3A5F; --primary-dark:#102A43;
+            --accent:#E8A33D; --text:#1F2430; --muted:#5B6472; --line:#DCE4EC;
+            --radius:16px; --shadow:0 2px 16px rgba(16,42,67,.06);
+        }
+        *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'PingFang SC','Microsoft YaHei',sans-serif;}
+        body{color:var(--text);line-height:1.65;background:var(--bg);}
+        a{text-decoration:none;color:inherit;}
+        img{display:block;max-width:100%;}
+        .container{max-width:1200px;margin:0 auto;padding:0 5%;}
+        .section{padding:4.5rem 5%;}
+        .section-title{text-align:center;font-size:1.9rem;color:var(--primary-dark);font-weight:700;letter-spacing:-.01em;margin-bottom:.6rem;}
+        .section-sub{text-align:center;color:var(--muted);font-size:1rem;margin-bottom:3rem;}
+
+        /* ===== 导航 ===== */
+        header{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line);}
+        nav{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:.9rem 5%;}
+        .logo{font-size:1.2rem;font-weight:800;color:var(--primary-dark);letter-spacing:-.01em;}
+        .logo span{color:var(--accent);}
+        nav ul{display:flex;gap:2.2rem;list-style:none;align-items:center;}
+        nav a{color:var(--text);font-size:.95rem;font-weight:500;transition:color .25s;}
+        nav a:hover{color:var(--primary);}
+        .nav-cta{background:var(--primary);color:#fff!important;padding:9px 20px;border-radius:999px;font-weight:600;transition:background .25s;}
+        .nav-cta:hover{background:var(--primary-dark);}
+
+        /* ===== Hero ===== */
+        .hero{background:linear-gradient(120deg,#EAF0F6 0%,#F7FAFD 55%,#EDF2F8 100%);overflow:hidden;position:relative;}
+        .hero-inner{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:2rem;max-width:1200px;margin:0 auto;padding:4.5rem 5%;min-height:560px;}
+        .hero h1{font-size:2.7rem;line-height:1.18;color:var(--primary-dark);font-weight:800;letter-spacing:-.02em;margin-bottom:1.2rem;}
+        .hero h1 em{font-style:normal;color:var(--primary);}
+        .hero p{font-size:1.08rem;color:var(--muted);max-width:520px;margin-bottom:2rem;}
+        .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+        .btn{display:inline-block;background:var(--primary);color:#fff;padding:14px 32px;border-radius:999px;font-weight:600;font-size:.98rem;transition:all .25s;}
+        .btn:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,58,95,.28);}
+        .btn-outline{background:transparent;color:var(--primary);border:1.5px solid var(--primary);}
+        .btn-outline:hover{background:var(--primary);color:#fff;}
+        .hero-media img{width:100%;border-radius:24px;box-shadow:0 24px 60px rgba(16,42,67,.18);}
+
+        /* ===== 信任栏 ===== */
+        .trust{border-bottom:1px solid var(--line);background:#fff;}
+        .trust-inner{display:flex;justify-content:center;gap:3.5rem;flex-wrap:wrap;padding:1.6rem 5%;max-width:1200px;margin:0 auto;}
+        .trust-item{display:flex;align-items:center;gap:10px;color:var(--primary-dark);font-weight:600;font-size:.95rem;}
+        .trust-item svg{width:20px;height:20px;stroke:var(--accent);}
+
+        /* ===== 产品区 ===== */
+        .product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.8rem;}
+        .product-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;}
+        .product-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(16,42,67,.12);}
+        .product-card .card-img{aspect-ratio:1/1;overflow:hidden;background:var(--bg-soft);}
+        .product-card .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+        .product-card:hover .card-img img{transform:scale(1.04);}
+        .product-info{padding:1.3rem 1.4rem 1.5rem;display:flex;flex-direction:column;flex:1;}
+        .product-info h3{font-size:1.06rem;color:var(--primary-dark);margin-bottom:.45rem;font-weight:700;}
+        .product-info .desc{color:var(--muted);font-size:.88rem;flex:1;margin-bottom:.9rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+        .spec-row{display:flex;justify-content:space-between;font-size:.84rem;padding:.32rem 0;border-top:1px dashed var(--line);}
+        .spec-row .label{color:var(--muted);}
+        .spec-row .value{color:var(--primary);font-weight:700;}
+        .btn-quote{display:block;text-align:center;background:var(--primary);color:#fff;padding:11px;border-radius:10px;margin-top:1rem;font-weight:600;font-size:.92rem;transition:background .25s;}
+        .btn-quote:hover{background:var(--accent);}
+
+        /* ===== 分类卡 ===== */
+        .category-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;margin-top:1rem;}
+        .category-card{position:relative;border-radius:20px;overflow:hidden;min-height:240px;display:flex;align-items:flex-end;transition:transform .3s,box-shadow .3s;}
+        .category-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(16,42,67,.14);}
+        .category-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+        .category-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,42,67,0) 28%,rgba(16,42,67,.55) 62%,rgba(16,42,67,.95) 100%);}
+        .category-info{position:relative;z-index:1;padding:1.8rem;color:#fff;}
+        .category-info h3{font-size:1.25rem;font-weight:700;margin-bottom:.3rem;text-shadow:0 2px 10px rgba(0,0,0,.35);}
+        .category-info p{font-size:.88rem;opacity:.92;margin-bottom:.6rem;}
+        .category-info a{display:inline-block;color:#fff;font-weight:600;font-size:.92rem;border-bottom:2px solid var(--accent);padding-bottom:2px;}
+
+        /* ===== 为什么选择我们 ===== */
+        .why-section{background:var(--bg-soft);}
+        .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;max-width:1000px;margin:0 auto;}
+        .why-item{text-align:center;padding:1.6rem 1rem;}
+        .why-item .num{font-size:2.6rem;font-weight:800;color:var(--primary);letter-spacing:-.02em;}
+        .why-item h3{color:var(--primary-dark);margin:.5rem 0 .3rem;font-size:1.05rem;}
+        .why-item p{color:var(--muted);font-size:.88rem;}
+
+        /* ===== CTA ===== */
+        .cta{background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:#fff;text-align:center;}
+        .cta h2{font-size:1.9rem;margin-bottom:.8rem;font-weight:800;}
+        .cta p{margin-bottom:2rem;opacity:.9;}
+        .cta .btn{background:#fff;color:var(--primary-dark);}
+        .cta .btn:hover{background:var(--accent);color:#fff;}
+
+        /* ===== 页脚 ===== */
+        footer{background:var(--primary-dark);color:#9FB3C8;padding:3rem 5% 2rem;}
+        .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;max-width:1200px;margin:0 auto;}
+        .footer-grid h4{color:#fff;margin-bottom:1rem;font-size:1rem;}
+        .footer-grid p,.footer-grid a{font-size:.88rem;display:block;margin-bottom:.4rem;color:#9FB3C8;transition:color .2s;}
+        .footer-grid a:hover{color:var(--accent);}
+        .footer-bottom{text-align:center;border-top:1px solid rgba(255,255,255,.12);margin-top:2.5rem;padding-top:1.5rem;color:#7C93A9;font-size:.84rem;max-width:1200px;margin-left:auto;margin-right:auto;}
+
+        /* ===== WhatsApp 悬浮 ===== */
+        .whatsapp-float{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;padding:13px 22px;border-radius:999px;font-weight:700;box-shadow:0 6px 20px rgba(37,211,102,.4);z-index:999;font-size:.92rem;transition:transform .2s;}
+        .whatsapp-float:hover{transform:translateY(-2px);}
+
+        /* ===== Cookie ===== */
+        #cookieBanner{position:fixed;bottom:0;left:0;right:0;background:var(--primary-dark);color:#fff;padding:16px 24px;z-index:9999;display:none;box-sizing:border-box;}
+        .cookie-wrap{max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+        .cookie-text{flex:1;min-width:300px;font-size:13px;line-height:1.5;}
+        .cookie-text a{color:var(--accent);}
+        .cookie-buttons{display:flex;gap:10px;}
+        .btn-accept{background:var(--accent);color:#fff;border:none;padding:9px 20px;border-radius:6px;cursor:pointer;font-weight:600;}
+        .btn-decline{background:transparent;color:#fff;border:1px solid #fff;padding:9px 20px;border-radius:6px;cursor:pointer;}
+
+        @media(max-width:820px){
+            .hero-inner{grid-template-columns:1fr;text-align:center;padding:3rem 5%;min-height:auto;}
+            .hero p{margin-left:auto;margin-right:auto;}
+            .hero h1{font-size:2rem;}
+            .hero-actions{justify-content:center;}
+            nav ul{gap:1rem;}
+            .category-grid{grid-template-columns:1fr;}
+            .trust-inner{gap:1.6rem;}
+        }
+    </style>
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+<script>
+/* 预览环境路径适配：doubao.link 下站内绝对路径转为相对路径（依赖平台 <base>）；正式 Netlify 部署不受影响 */
+var SITE_BASE = location.hostname.indexOf('doubao.link') >= 0 ? '' : '/';
+function sitePath(p){ return SITE_BASE + String(p).replace(/^\//, ''); }
+if(SITE_BASE === ''){
+    document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('a[href^="/"]').forEach(function(a){
+            var h = a.getAttribute('href');
+            if(h.indexOf('//') !== 0) a.setAttribute('href', h.replace(/^\//, ''));
+        });
+        document.querySelectorAll('img[src^="/"]').forEach(function(img){
+            img.setAttribute('src', img.getAttribute('src').replace(/^\//, ''));
+        });
+    });
+}
+</script>
+
+    <!-- 导航栏 -->
+    <header class="site-header">
+  <nav class="site-nav" id="siteNav">
+    <a class="site-logo" href="/">JINYU<span>Textile</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/products/">Products</a></li>
+      <li><a href="/about.html">About Us</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a class="nav-cta" href="https://wa.me/8618174810606" target="_blank" rel="noopener">Get Quote</a></li>
+    </ul>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="siteNav">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </nav>
+</header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div>
+                <h1>Custom <em>Promotional Bags</em><br>Manufacturer From China</h1>
+                <p>Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd. — factory direct foldable shopping bags, drawstring bags, waterproof backpacks and custom textile products. Low MOQ, custom logo, global shipping.</p>
+                <div class="hero-actions">
+                    <a class="btn" href="/products/">View Our Products</a>
+                    <a class="btn btn-outline" href="https://wa.me/8618174810606" target="_blank">Chat Now</a>
+                </div>
+            </div>
+            <div class="hero-media">
+                <img src="assets/images/hero-banner.jpg" alt="Premium custom bags collection from JINYU Textile">
+            </div>
+        </div>
+    </section>
+
+    <!-- 信任栏 -->
+    <div class="trust">
+        <div class="trust-inner">
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                Low MOQ
+            </div>
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                Global Shipping
+            </div>
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+                Custom Logo
+            </div>
+        </div>
+    </div>
+
+    <!-- 精选产品 -->
+    <main class="section container">
+        <h2 class="section-title">Featured Collection</h2>
+        <p class="section-sub">Factory direct best sellers — custom logo &amp; size available</p>
+        <div class="product-grid" id="homeProductGrid">
+            <!-- 产品卡由 JS 从 /content/products/index.json 动态渲染 -->
+        </div>
+
+        <!-- 分类卡 -->
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="assets/images/uploads/drawstring-backpack.jpg" alt="Custom Bags">
+                <div class="category-info">
+                    <h3>Custom Bags</h3>
+                    <p>Tote bags, drawstring bags, foldable shopping bags and more.</p>
+                    <a href="/products/bag-styles/">Browse Products</a>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="assets/images/uploads/foldable-tote.jpg" alt="Promotional Event Products">
+                <div class="category-info">
+                    <h3>Promotional Event Products</h3>
+                    <p>Custom printed gift bags, event souvenirs and giveaway items.</p>
+                    <a href="/products/promotional-event-styles/">Browse Products</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 为什么选择我们 -->
+    <section class="section why-section">
+        <h2 class="section-title">Why Choose Us</h2>
+        <p class="section-sub">Factory direct, quality guaranteed</p>
+        <div class="why-grid">
+            <div class="why-item">
+                <div class="num">10+</div>
+                <h3>Years Experience</h3>
+                <p>Professional manufacturing experience in textile products</p>
+            </div>
+            <div class="why-item">
+                <div class="num">100%</div>
+                <h3>Quality Control</h3>
+                <p>Strict inspection before packing and shipping</p>
+            </div>
+            <div class="why-item">
+                <div class="num">24h</div>
+                <h3>Fast Response</h3>
+                <p>Reply within 24 hours, free quotation and samples</p>
+            </div>
+            <div class="why-item">
+                <div class="num">50+</div>
+                <h3>Export Countries</h3>
+                <p>Trusted by buyers from all over the world</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta">
+        <h2>Ready to Start Your Custom Order?</h2>
+        <p>Contact us today for free sample and quotation — we reply within 24 hours!</p>
+        <a class="btn" href="https://wa.me/8618174810606?text=Hello,I'm interested in your products." target="_blank">WhatsApp Us Now</a>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>JINYU Textile</h4>
+                <p>Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd.</p>
+                <p>Manufacturer of promotional bags and textile products</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <a href="/">Home</a>
+                <a href="/products/">Products</a>
+                <a href="/about.html">About Us</a>
+                <a href="/contact.html">Contact</a>
+                <a href="/privacy.html">Privacy Policy</a>
+            </div>
+            <div>
+                <h4>Contact Us</h4>
+                <div id="footerContact">
+                    <p>WhatsApp: +8618174810606</p>
+                    <p>Email: zhaojiaojiao160@gmail.com</p>
+                    <p>24 hours online service</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp 悬浮按钮 -->
+    <a class="whatsapp-float" href="https://wa.me/8618174810606?text=Hello,I'm interested in your products." target="_blank">WhatsApp Us</a>
+
+    <!-- Cookie弹窗 -->
+    <div id="cookieBanner">
+        <div class="cookie-wrap">
+            <div class="cookie-text">
+                We use cookies to analyze website traffic and optimize your advertising experience. By accepting, you agree to our <a href="/privacy.html">Privacy Policy</a>.
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn-accept" id="acceptCookie">Accept</button>
+                <button class="btn-decline" id="declineCookie">Decline</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+// ===== 联系方式动态加载（数据源 content/settings/contact.json，CMS后台可编辑）=====
+fetch(SITE_BASE + 'content/settings/contact.json')
+.then(function(r){ return r.json(); })
+.then(function(c){
+    var box = document.getElementById('footerContact');
+    if(box){
+        var html = '';
+        (c.wa_list||[]).forEach(function(w){
+            if(!w.number) return;
+            var num = w.number.replace(/[^0-9]/g,'');
+            html += '<p>WhatsApp: <a href="https://wa.me/' + num + '" target="_blank" style="color:#E8A33D;">' + w.number + '</a></p>';
+        });
+        if(c.email) html += '<p>Email: <a href="mailto:' + c.email + '" style="color:#E8A33D;">' + c.email + '</a></p>';
+        if(c.phone) html += '<p>Phone: ' + c.phone + '</p>';
+        var wxList = (c.wechat_list||[]).map(function(w){ return w.id; }).filter(Boolean);
+        wxList.forEach(function(id){ html += '<p>WeChat: ' + id + '</p>'; });
+        if(html) box.innerHTML = html + '<p>24 hours online service</p>';
+    }
+    var mainNum = (c.wa_list && c.wa_list.length && c.wa_list[0].number) ? c.wa_list[0].number.replace(/[^0-9]/g,'') : '8618174810606';
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){
+        a.setAttribute('href', a.getAttribute('href').replace(/wa\.me\/[0-9]+/, 'wa.me/' + mainNum));
+    });
+})
+.catch(function(){});
+</script>
+<script>
+// ===== Cookie与统计 =====
+const cookieKey = "site_cookie_consent";
+const consent = localStorage.getItem(cookieKey);
+const banner = document.getElementById("cookieBanner");
+const GA_ID = "G-7H5SFHC9FT";
+const META_PIXEL_ID = "3025464907789231";
+const PIN_TAG_ID = "2613926838568";
+const euCountries = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','GB'];
+
+function loadAllTracking(){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'update', { ad_storage: 'granted', analytics_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
+    const gaScript = document.createElement('script');
+    gaScript.async = true;
+    gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(gaScript);
+    gtag('js', new Date());
+    gtag('config', GA_ID);
+    if(META_PIXEL_ID !== "YOUR_META_PIXEL_ID"){
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('consent','grant'); fbq('init', META_PIXEL_ID); fbq('track', 'PageView');
+    }
+    if(PIN_TAG_ID !== "YOUR_PINTEREST_TAG_ID"){
+        !function(e,t){if(!window.pintrk){window.pintrk=function(){window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var n=window.pintrk;n.queue=[],n.version="3.0";var r=t.createElement("script");r.async=!0;r.src="https://s.pinimg.com/ct/core.js";var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)}}(window,document);
+        pintrk('load', PIN_TAG_ID); pintrk('pagevisit');
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href*="wa.me"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if(window.trackLead) window.trackLead();
+            });
+        });
+    });
+}
+function setDefaultDenyConsent(){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', { ad_storage: 'denied', analytics_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+    if(window.fbq) fbq('consent','revoke');
+}
+fetch('https://ipapi.co/json/')
+.then(res=>res.json())
+.then(data=>{
+    const visitorCountry = data.country_code;
+    const isEU = euCountries.includes(visitorCountry);
+    if(!isEU){ loadAllTracking(); }
+    else{
+        setDefaultDenyConsent();
+        if(consent === "accept"){ loadAllTracking(); }
+        else if(consent === null){ banner.style.display = "block"; }
+    }
+})
+.catch(err=>{
+    setDefaultDenyConsent();
+    if(consent === "accept"){ loadAllTracking(); }
+    else if(consent === null){ banner.style.display = "block"; }
+})
+document.getElementById("acceptCookie").addEventListener("click",()=>{
+    localStorage.setItem(cookieKey,"accept");
+    banner.style.display="none";
+    loadAllTracking();
+})
+document.getElementById("declineCookie").addEventListener("click",()=>{
+    localStorage.setItem(cookieKey,"decline");
+    banner.style.display="none";
+})
+
+// ===== 首页产品（CMS 上传后自动更新）=====
+// 规则：① 勾选「首页推荐」的产品固定展示，按后台列表顺序排列；
+//       ② 不足 8 个时，自动用最新上传的产品（列表末尾）补齐空位
+async function loadHomeProducts(){
+    const grid = document.getElementById("homeProductGrid");
+    const MAX_HOME = 8;
+    try{
+        const res = await fetch(SITE_BASE + 'content/products/index.json', {cache:'no-store'});
+        const products = await res.json();
+        const all = Array.isArray(products) ? products : [];
+        if(all.length === 0){
+            grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:#888;">Products coming soon.</p>`;
+            return;
+        }
+        const featured = all.filter(p => p.featured === true);
+        const others = all.slice().reverse().filter(p => p.featured !== true);
+        const list = featured.concat(others).slice(0, MAX_HOME);
+        grid.innerHTML = list.map(product => `
+            <div class="product-card">
+                <a href="${SITE_BASE}product-detail.html#slug=${product.slug}" style="display:block;">
+                    <div class="card-img">
+                        ${product.image
+                            ? `<img src="${sitePath(product.image)}" alt="${product.title}" loading="lazy">`
+                            : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:.9rem;">Image coming soon</div>`}
+                    </div>
+                </a>
+                <div class="product-info">
+                    ${product.featured === true ? '<span style="display:inline-block;background:#E8A33D;color:#fff;font-size:.72rem;padding:2px 8px;border-radius:4px;margin-bottom:.45rem;font-weight:600;">Featured</span>' : ''}
+                    <h3><a href="${SITE_BASE}product-detail.html#slug=${product.slug}" style="color:inherit;">${product.title}</a></h3>
+                    <p class="desc">${product.description || ""}</p>
+                    <div class="spec-row"><span class="label">MOQ</span><span class="value">${product.moq || '—'}</span></div>
+                    <div class="spec-row"><span class="label">Material</span><span class="value">${product.material || '—'}</span></div>
+                    <a class="btn-quote" href="https://wa.me/8618174810606?text=${encodeURIComponent('Hello, I am interested in ' + product.title + '. Please send me a quote.')}" target="_blank" rel="noopener">Request a Quote</a>
+                </div>
+            </div>
+        `).join('');
+    }catch(err){
+        grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:#888;">Failed to load products.</p>`;
+    }
+}
+loadHomeProducts();
+</script>
+
+<!-- Netlify Identity Widget（CMS登录必需，勿删） -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+<script>
+// 统一 WhatsApp 询盘转化上报（点击委托，支持动态渲染按钮；400ms 内去重）
+window.trackLead = function(){
+  if(window.__leadFired) return;
+  window.__leadFired = true;
+  setTimeout(function(){ window.__leadFired = false; }, 400);
+  if(window.gtag) gtag('event','generate_lead',{method:'whatsapp'});
+  if(window.fbq) fbq('track','Lead');
+  if(window.pintrk) pintrk('track','lead');
+};
+document.addEventListener('click', function(e){
+  var a = (e.target && e.target.closest) ? e.target.closest('a[href*="wa.me"],a[href*="api.whatsapp.com"],a[href*="whatsapp"]') : null;
+  if(a) window.trackLead();
+}, true);
+</script>
+<button class="back-top" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+</button>
+
+<script src="/assets/js/ui.js"></script>
+</body>
+</html>

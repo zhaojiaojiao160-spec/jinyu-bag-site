@@ -1,0 +1,79 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+site_url: "https://www.jinyusmarttextile.com"
+display_url: "https://www.jinyusmarttextile.com"
+logo_url: "https://www.jinyusmarttextile.com/assets/images/hero-banner.jpg"
+
+collections:
+  - name: "products"
+    label: "Products / 产品"
+    files:
+      - label: "Product List / 产品列表"
+        name: "products"
+        file: "content/products/index.json"
+        fields:
+          - name: "products"
+            label: "Products"
+            label_singular: "Product"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.category}}"
+            fields:
+              - {label: "Product Title / 产品名称", name: "title", widget: "string"}
+              - {label: "Description / 产品描述", name: "description", widget: "text"}
+              - {label: "MOQ / 起订量", name: "moq", widget: "string", default: "500 pcs"}
+              - {label: "Material / 材质", name: "material", widget: "string", default: "Polyester"}
+              - {label: "Product Image / 产品图片", name: "image", widget: "image"}
+              - label: "Slug (URL 标识)"
+                name: "slug"
+                widget: "string"
+                pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', "只能用小写字母、数字和连字符，例如 canvas-tote-bag"]
+                hint: "用于产品详情页链接，创建后不要修改，改了旧链接会失效"
+              - label: "Category / 一级分类"
+                name: "category"
+                widget: "select"
+                options:
+                  - {label: "Custom Bags / 定制包袋", value: "bags"}
+                  - {label: "Promotional Event Products / 促销活动产品", value: "promotional"}
+                hint: "决定产品出现在哪个分类页"
+              - label: "Subcategory / 二级分类（自由输入）"
+                name: "subcategory"
+                widget: "string"
+                required: false
+                hint: "自由填写，例如 Tote Bags、Drawstring Bags、Gift Pouches。填写后会自动生成分类页顶部的筛选按钮；同一名称请保持一致，否则会多出一个筛选按钮。留空则只出现在 All 中。"
+              - label: "Show on Homepage / 首页推荐"
+                name: "featured"
+                widget: "boolean"
+                required: false
+                default: false
+                hint: "勾选 = 固定出现在首页（可拖动调整顺序）；不勾选的产品会按「最新上传」自动补齐首页剩余位置"
+
+  - name: "site_settings"
+    label: "Site Settings / 网站设置"
+    files:
+      - label: "Contact Info / 联系方式"
+        name: "contact"
+        file: "content/settings/contact.json"
+        fields:
+          - {label: "Company Name / 公司名称", name: "company", widget: "string", default: "Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd."}
+          - label: "WhatsApp Numbers / WhatsApp 号码（可添加多个，第一个为主号码）"
+            name: "wa_list"
+            widget: "list"
+            summary: "{{fields.label}} | {{fields.number}}"
+            hint: "点 + 号可添加第 2、第 3 个号码，格式如 +8618174810606。留空的条目不会显示在网站上。"
+            fields:
+              - {label: "WhatsApp Number / 号码", name: "number", widget: "string", default: "+8618174810606"}
+              - {label: "Label / 备注（可选，如 Sales / Kelvin）", name: "label", widget: "string", required: false}
+          - {label: "Email / 邮箱", name: "email", widget: "string", default: "zhaojiaojiao160@gmail.com"}
+          - {label: "Phone / 电话", name: "phone", widget: "string", required: false, hint: "留空则网站不显示电话"}
+          - label: "WeChat IDs / 微信号（可添加多个）"
+            name: "wechat_list"
+            widget: "list"
+            hint: "点 + 号可添加第 2 个微信号；留空的条目不会显示。"
+            required: false
+            fields:
+              - {label: "WeChat ID", name: "id", widget: "string"}
