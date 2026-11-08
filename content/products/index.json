@@ -63,7 +63,7 @@
     {
       "material": "Polyester",
       "slug": "t-shirt-baseball-cap",
-      "featured": true,
+      "featured": false,
       "moq": "500 pcs",
       "title": "Custom Printed T-shirt & Baseball Cap",
       "image": "/assets/images/uploads/promotional-t.jpg",
