@@ -59,6 +59,17 @@
       "slug": "event-waterproof-storage-sack",
       "category": "promotional",
       "subcategory": "Storage Sacks"
+    },
+    {
+      "material": "Polyester",
+      "slug": "t-shirt-baseball-cap",
+      "featured": true,
+      "moq": "500 pcs",
+      "title": "Custom Printed T-shirt & Baseball Cap",
+      "image": "/assets/images/uploads/promotional-t.jpg",
+      "description": "Custom printed t-shirts and baseball caps for sports events, corporate giveaways and promotional campaigns. Breathable cotton-polyester blend with custom logo, team name or event artwork. Ideal for ASEAN games, marathons, company uniforms and festival merchandise. Low MOQ, fast sample lead time, global shipping.\n",
+      "category": "promotional",
+      "subcategory": "Heavy canvas tote bag for daily shopping, custom logo, multiple color options."
     }
   ]
 }
