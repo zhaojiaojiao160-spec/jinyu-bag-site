@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Canvas Tote Bag",
+    "description": "Heavy canvas tote bag for daily shopping, custom logo, multiple color options.",
+    "moq": "300 pcs",
+    "material": "Heavy Canvas",
+    "image": "/assets/images/uploads/canvas-tote-bag.jpg",
+    "slug": "canvas-tote-bag",
+    "category": "bags",
+    "subcategory": "Tote Bags"
+  },
+  {
+    "title": "Polyester Drawstring Backpack",
+    "description": "Lightweight drawstring sport bag, widely used for gym, travel and wholesale.",
+    "moq": "500 pcs",
+    "material": "210D Polyester",
+    "image": "/assets/images/uploads/drawstring-backpack.jpg",
+    "slug": "polyester-drawstring-backpack",
+    "category": "bags",
+    "subcategory": "Drawstring Bags"
+  },
+  {
+    "title": "Cosmetic Makeup Pouch",
+    "description": "Small textile cosmetic bag, zipper closure, custom print for brand retail.",
+    "moq": "500 pcs",
+    "material": "Polyester",
+    "image": "/assets/images/uploads/cosmetic-makeup-pouch.jpg",
+    "slug": "cosmetic-makeup-pouch",
+    "category": "bags",
+    "subcategory": "Cosmetic Bags"
+  },
+  {
+    "title": "Custom Printed Foldable Tote",
+    "description": "Lightweight foldable shopping tote for exhibition & promotional giveaway, custom logo printing available.",
+    "moq": "500 pcs",
+    "material": "210D Polyester",
+    "image": "/assets/images/uploads/foldable-tote.jpg",
+    "slug": "custom-printed-foldable-tote",
+    "category": "promotional",
+    "subcategory": "Foldable Totes"
+  },
+  {
+    "title": "Branded Drawstring Gift Pouch",
+    "description": "Small drawstring pouch for event souvenir, made of polyester fabric, support heat transfer print.",
+    "moq": "300 pcs",
+    "material": "Polyester",
+    "image": "/assets/images/uploads/drawstring-gift-pouch.jpg",
+    "slug": "branded-drawstring-gift-pouch",
+    "category": "promotional",
+    "subcategory": "Gift Pouches"
+  },
+  {
+    "title": "Event Waterproof Storage Sack",
+    "description": "Waterproof promotional sack for outdoor activity, durable fabric, custom size acceptable.",
+    "moq": "1000 pcs",
+    "material": "Waterproof Nylon",
+    "image": "/assets/images/uploads/waterproof-storage-sack.jpg",
+    "slug": "event-waterproof-storage-sack",
+    "category": "promotional",
+    "subcategory": "Storage Sacks"
+  }
+]
