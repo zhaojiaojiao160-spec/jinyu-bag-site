@@ -38,7 +38,7 @@ collections:
                 widget: "select"
                 options:
                   - {label: "Custom Bags / 定制包袋", value: "bags"}
-                  - {label: "Promotional Event Products / 促销活动产品", value: "promotional"}
+                  - {label: "Promotional Gift Products / 促销活动产品", value: "promotional"}
                 hint: "决定产品出现在哪个分类页"
               - label: "Subcategory / 二级分类（自由输入）"
                 name: "subcategory"

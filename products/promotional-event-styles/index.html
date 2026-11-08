@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Promotional Event Products — Custom Printed Giveaways | JINYU Textile</title>
+<title>Promotional Gift Products — Custom Printed Giveaways | JINYU Textile</title>
 <meta name="description" content="Custom promotional event products: printed foldable totes, branded drawstring gift pouches and waterproof storage sacks for campaigns, exhibitions and giveaways.">
 <link rel="stylesheet" href="/assets/css/site.css">
 <style>
@@ -91,8 +91,8 @@
 <main>
   <section class="page-hero">
     <div class="page-hero-inner">
-      <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/products/">Products</a><span>/</span>Promotional Event Products</div>
-      <h1>Promotional Event Products</h1>
+      <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/products/">Products</a><span>/</span>Promotional Gift Products</div>
+      <h1>Promotional Gift Products</h1>
       <p>Event giveaways and marketing items produced for brand campaigns, exhibitions and retail promotions — printed with your artwork and packed for bulk shipping.</p>
     </div>
   </section>
@@ -108,9 +108,9 @@
   </section>
 
   <section class="cta">
-    <h2>Need a custom quote for Promotional Event Products?</h2>
+    <h2>Need a custom quote for Promotional Gift Products?</h2>
     <p>Send us your logo, size and quantity — we reply with price and sample details within 24 hours.</p>
-    <a class="btn" href="https://wa.me/8618174810606?text=Hello,I%20need%20a%20quote%20for%20Promotional Event Products." target="_blank" rel="noopener">Chat on WhatsApp</a>
+    <a class="btn" href="https://wa.me/8618174810606?text=Hello,I%20need%20a%20quote%20for%20Promotional Gift Products." target="_blank" rel="noopener">Chat on WhatsApp</a>
   </section>
 </main>
 
@@ -246,7 +246,8 @@ fetch(SITE_BASE + 'content/settings/contact.json')
   fetch(SITE_BASE + 'content/products/index.json')
   .then(function(r){ return r.json(); })
   .then(function(data){
-    all = (data || []).filter(function(p){ return p.category === CATEGORY; });
+    var raw = Array.isArray(data) ? data : (data.products || []);
+    all = raw.filter(function(p){ return p.category === CATEGORY; });
     buildFilter();
     render();
   })

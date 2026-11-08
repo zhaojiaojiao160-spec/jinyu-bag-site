@@ -172,7 +172,7 @@ window.__jinyuMainWa = '8618174810606';
 
 var CATEGORY_MAP = {
   bags: { label: 'Custom Bags', url: '/products/bag-styles/' },
-  promotional: { label: 'Promotional Event Products', url: '/products/promotional-event-styles/' }
+  promotional: { label: 'Promotional Gift Products', url: '/products/promotional-event-styles/' }
 };
 
 function esc(s){
@@ -321,7 +321,8 @@ fetch(SITE_BASE + 'content/settings/contact.json')
     if(!slug){ notFound(); return; }
     try{
       var res = await fetch(SITE_BASE + 'content/products/index.json');
-      var all = await res.json();
+      var raw = await res.json();
+      var all = Array.isArray(raw) ? raw : (raw.products || []);
       var product = all.find(function(p){ return p.slug === slug; });
       if(!product){ notFound(); return; }
 

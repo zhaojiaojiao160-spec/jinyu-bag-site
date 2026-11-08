@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JINYU Smart Textile | Custom Promotional Bags & Textile Products Manufacturer</title>
+    <title>JINYU Smart Textile | Custom Bags & Promotional Gift Products Manufacturer</title>
     <meta name="description" content="Professional manufacturer of custom foldable shopping bags, drawstring bags, waterproof backpacks and promotional products. Factory direct, custom logo, low MOQ, global shipping.">
     <style>
         :root{
@@ -164,7 +164,7 @@ if(SITE_BASE === ''){
     <section class="hero">
         <div class="hero-inner">
             <div>
-                <h1>Custom <em>Promotional Bags</em><br>Manufacturer From China</h1>
+                <h1>Custom Bags & <em>Promotional Gift Products</em><br>Manufacturer From China</h1>
                 <p>Guangxi Jinyu Intelligent Manufacturing Technology Co., Ltd. — factory direct foldable shopping bags, drawstring bags, waterproof backpacks and custom textile products. Low MOQ, custom logo, global shipping.</p>
                 <div class="hero-actions">
                     <a class="btn" href="/products/">View Our Products</a>
@@ -214,9 +214,9 @@ if(SITE_BASE === ''){
                 </div>
             </div>
             <div class="category-card">
-                <img src="assets/images/uploads/foldable-tote.jpg" alt="Promotional Event Products">
+                <img src="assets/images/uploads/foldable-tote.jpg" alt="Promotional Gift Products">
                 <div class="category-info">
-                    <h3>Promotional Event Products</h3>
+                    <h3>Promotional Gift Products</h3>
                     <p>Custom printed gift bags, event souvenirs and giveaway items.</p>
                     <a href="/products/promotional-event-styles/">Browse Products</a>
                 </div>
@@ -408,8 +408,8 @@ async function loadHomeProducts(){
     const MAX_HOME = 8;
     try{
         const res = await fetch(SITE_BASE + 'content/products/index.json', {cache:'no-store'});
-        const products = await res.json();
-        const all = Array.isArray(products) ? products : [];
+        const raw = await res.json();
+        const all = Array.isArray(raw) ? raw : (raw.products || []);
         if(all.length === 0){
             grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:#888;">Products coming soon.</p>`;
             return;
